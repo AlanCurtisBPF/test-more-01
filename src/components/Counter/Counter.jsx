@@ -4,7 +4,7 @@ import {
   increment as incrementAction,
   decrement as decrementAction,
   reset as resetAction,
-} from "../../redux/reducers/counter/counterActions";
+} from "../../redux/models/counter/counterActions";
 
 const Counter = (props) => {
   const { increment, decrement, reset, count } = props;

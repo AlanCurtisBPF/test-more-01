@@ -6,7 +6,6 @@ import {
 } from "../../redux/models/todos/todosActions";
 
 import SpinnerSVG from "../../assets/svgs/SpinnerSVG";
-// todo: alan- make dummy server or way to fake dummy server.
 // todo: add this to the test suit
 // todo: allow for full crud testing.
 
@@ -37,10 +36,19 @@ const Todos = (props) => {
     });
   };
 
+  const displayTodos = () =>{
+    if(todos.isLoading){
+      return(
+        <SpinnerSVG />
+      )
+    } else {
+      return mapOverTodosToDisplay()
+    }
+  }
+
   return (
     <div className="Todos">
       Todo Comp
-      <SpinnerSVG />
       <input
         type="text"
         data-testid="todo-input"
@@ -49,14 +57,15 @@ const Todos = (props) => {
       />
       <button onClick={handleAddTodo}>Add Todo</button>
       <button onClick={() => console.log({ todos })}>log</button>
-      {mapOverTodosToDisplay()}
+      <div>
+        {displayTodos()}
+      </div>
     </div>
   );
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // addTodo: (todo) => dispatch(addTodoAction(todo)),
     getTodos: () => dispatch(getTodosAction()),
     dispatch,
   };

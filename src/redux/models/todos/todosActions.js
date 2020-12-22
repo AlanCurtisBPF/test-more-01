@@ -28,7 +28,7 @@ const getTodosStarted = () => {
   return {
     type: types.GET_TODOS_STARTED,
     payload: {
-      loading: true,
+      isLoading: true,
     },
   };
 };
@@ -39,7 +39,7 @@ const getTodosSuccess = (todos )=> {
     type: types.GET_TODOS_SUCCESS,
     payload: {
       todos:[...todos],
-      loading:false,
+      isLoading:false,
       error: null
     }
   }
@@ -50,7 +50,7 @@ const getTodosFailure = error => ({
   payload: {
     error,
     todos:[],
-    loading:false
+    isLoading:false
   }
 }); 
 

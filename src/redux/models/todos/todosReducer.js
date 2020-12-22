@@ -3,7 +3,7 @@ import * as types from "./todosTypes";
 
 // Initial State
 export const initialState = {
-  loading: false,
+  isLoading: false,
   todos: [],
   error: null
 };

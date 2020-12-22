@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import {
-  addTodo as addTodoAction,
+  // addTodo as addTodoAction,
+  getTodos as getTodosAction
 } from "../../redux/models/todos/todosActions";
 
 // todo: alan- make dummy server or way to fake dummy server.
@@ -9,15 +10,19 @@ import {
 // todo: allow for full crud testing.
 
 const Todos = (props) => {
-  const { addTodo, todos } = props;
+  const { todos, getTodos } = props;
   const [todo, setTodo] = useState('hamster');
 
+  useEffect(()=>{
+    getTodos()
+  },[getTodos])
+
   const handleAddTodo = () => {
-      const todoToAdd = {
-          title: todo,
-          id: Math.floor(Math.random() * Math.floor(1000))
-      }
-    addTodo(todoToAdd);
+      // const todoToAdd = {
+      //     title: todo,
+      //     id: Math.floor(Math.random() * Math.floor(1000))
+      // }
+    // addTodo(todoToAdd);
   };
 
   const handleSetTodo = (e) => {
@@ -49,7 +54,8 @@ const Todos = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addTodo: (todo) => dispatch(addTodoAction(todo)),
+    // addTodo: (todo) => dispatch(addTodoAction(todo)),
+    getTodos: () => dispatch(getTodosAction()),
     dispatch,
   };
 };

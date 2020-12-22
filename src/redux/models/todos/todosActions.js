@@ -1,10 +1,60 @@
-import axios from 'axios';
+import axios from "axios";
 import * as types from "./todosTypes";
 
 // todo: alan- clean up and match styles of code between counter and this todo.
 // too keep consistiency.
 
 // Actions
+
+export const getTodos = () => {
+  console.log("Start");
+  return (dispatch, getState) => {
+    dispatch(getTodosStarted());
+
+    axios.get('http://localhost:3004/todos/')
+    .then((res)=>{
+      // setTimeout to represnt latency
+      setTimeout(() => {
+        dispatch(getTodosSuccess(res.data));
+      }, 2500);  
+    }).catch((error)=>{
+      dispatch(getTodosFailure(error.message));
+    })
+  };
+};
+
+
+const getTodosStarted = () => {
+  return {
+    type: types.GET_TODOS_STARTED,
+    payload: {
+      loading: true,
+    },
+  };
+};
+
+const getTodosSuccess = (todos )=> {
+  console.log({todos})
+  return{
+    type: types.GET_TODOS_SUCCESS,
+    payload: {
+      todos:[...todos],
+      loading:false,
+      error: null
+    }
+  }
+};
+
+const getTodosFailure = error => ({
+  type: types.GET_TODOS_FAILURE,
+  payload: {
+    error,
+    todos:[],
+    loading:false
+  }
+}); 
+
+/*
 export const addTodo = ({ title, userId }) => {
   return (dispatch, getState) => {
     const { todos } = getState();
@@ -58,7 +108,9 @@ const addTodoFailure = error => ({
     todos:[],
     loading:false
   }
-});
+}); 
+
+*/
 
 /*
 export const increment = (margin) => (dispatch, getState) => {

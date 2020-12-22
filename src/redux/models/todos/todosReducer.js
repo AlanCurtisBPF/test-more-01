@@ -4,26 +4,7 @@ import * as types from "./todosTypes";
 // Initial State
 export const initialState = {
   loading: false,
-  todos: [
-    {
-      "userId": 1,
-      "id": 1,
-      "title": "Jump",
-      "completed": false
-    },
-    {
-      "userId": 1,
-      "id": 2,
-      "title": "Dance",
-      "completed": false
-    },
-    {
-      "userId": 2,
-      "id": 3,
-      "title": "Swing",
-      "completed": false
-    },
-  ],
+  todos: [],
   error: null
 };
 
@@ -34,13 +15,13 @@ export const initialState = {
 const todosReducer = (state = initialState, action) => {
   let updateState;
   switch (action.type) {
-    case types.ADD_TODO_STARTED:
+    case types.GET_TODOS_STARTED:
       updateState= Object.assign({}, state, {...action.payload})
       return updateState
-    case types.ADD_TODO_SUCCESS:
+    case types.GET_TODOS_SUCCESS:
       updateState= Object.assign({}, state, {...action.payload});
       return updateState
-    case types.ADD_TODO_FAILURE:
+    case types.GET_TODOS_FAILURE:
       updateState= Object.assign({}, state, initialState);
       return updateState
     default:

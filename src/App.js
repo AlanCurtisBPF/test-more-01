@@ -1,11 +1,11 @@
 import './App.css';
 import Counter from './components/Counter/Counter';
-import Fetch from './components/Fetch/Fetch';
+import Todos from './components/Todos/Todos';
 
 function App() {
   return (
     <div className="App">
-      <Fetch />
+      <Todos />
       <Counter />
     </div>
   );

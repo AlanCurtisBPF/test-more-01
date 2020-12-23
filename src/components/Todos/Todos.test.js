@@ -11,4 +11,32 @@ describe("Todos Comp", () => {
      expect(true).toBe(false)
   });
 
+  it("should ", () => {
+     expect(true).toBe(false)
+  });
+
+  it("should create and add todo to list ", () => {
+     expect(true).toBe(false)
+  });
+
+  it("should clear todo input after todo is added", ()=>{
+    expect(true).toBe(false)
+ });
+
+  it("should remove todo from list ", () => {
+    expect(true).toBe(false)
+ });
+
+ it("should edit todo on list", () => {
+    expect(true).toBe(false)
+ });
+
+ it("should clear list of todos", ()=>{
+    expect(true).toBe(false)
+ });
+
+ it("should not allow you to add two of the same name", ()=>{
+    expect(true).toBe(false)
+ });
+
 });

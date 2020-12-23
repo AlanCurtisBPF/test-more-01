@@ -6,6 +6,7 @@ import * as types from "./todosTypes";
 
 // Actions
 
+//// get todos ////
 export const getTodos = () => {
   return async (dispatch) => {
     dispatch(getTodosRequest());
@@ -52,12 +53,62 @@ export const getTodosFailure = (error) => {
   };
 };
 
+//// add todo ////
+export const addTodo = (todoTitle) => {
+  return async (dispatch) => {
+    dispatch(addTodoRequest());
+    const body = {
+      title: todoTitle,
+      completed: false,
+    };
+
+    return axios
+      .post("http://localhost:3004/todos/", body)
+      .then((res) => {
+        dispatch(addTodoSuccess(res.data));
+      })
+      .catch((error) => {
+        dispatch(addTodoFailure(error.message));
+      });
+  };
+};
+
+export const addTodoRequest = () => {
+  return {
+    type: types.ADD_TODO_REQUEST,
+    payload: {
+      isLoading: true,
+    },
+  };
+};
+
+export const addTodoSuccess = (todo) => (dispatch, getState) => {
+  const currentTodoList = getState().todos.todos;
+  dispatch( {
+    type: types.ADD_TODO_SUCCESS,
+    payload: {
+      todos: [...currentTodoList, todo],
+      isLoading: false,
+      error: null,
+    },
+  });
+};
+
+export const addTodoFailure = (error) => {
+  return {
+    type: types.ADD_TODO_FAILURE,
+    payload: {
+      error,
+      isLoading: false,
+    },
+  };
+};
+
 // const resetTodos = () => {
 //   return {
 //     type: types.TODOS_RESET
 //   };
 // };
-
 
 /*
 
@@ -82,4 +133,3 @@ export const getTodos = () => {
   };
 };
 */
-

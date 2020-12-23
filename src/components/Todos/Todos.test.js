@@ -39,4 +39,8 @@ describe("Todos Comp", () => {
     expect(true).toBe(false)
  });
 
+ it("should not allow you to add a todo with no title", ()=>{
+   expect(true).toBe(false)
+});
+
 });

@@ -24,6 +24,15 @@ const todosReducer = (state = initialState, action) => {
     case types.GET_TODOS_FAILURE:
       updateState= Object.assign({}, state, {...action.payload});
       return updateState
+    case types.ADD_TODO_REQUEST:
+      updateState= Object.assign({}, state, {...action.payload})
+      return updateState
+    case types.ADD_TODO_SUCCESS:
+      updateState= Object.assign({}, state, {...action.payload});
+      return updateState
+    case types.ADD_TODO_FAILURE:
+      updateState= Object.assign({}, state, {...action.payload});
+      return updateState
     default:
       return state;
   }

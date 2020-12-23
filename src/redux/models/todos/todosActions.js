@@ -31,7 +31,6 @@ const getTodosRequest = () => {
 };
 
 const getTodosSuccess = (todos) => {
-  console.log({ todos });
   return {
     type: types.GET_TODOS_SUCCESS,
     payload: {

@@ -13,16 +13,7 @@ export const getTodos = () => {
     return axios
       .get("http://localhost:3004/todos/")
       .then((res) => {
-        /*
-        // or you can throw an error
-        throw new Error("failed to retrieve todos!");
-        // */
-        // /*
-        // setTimeout to represnt latency
-        setTimeout(() => {
-          dispatch(getTodosSuccess(res.data));
-        }, 2000);
-        // */
+        dispatch(getTodosSuccess(res.data));
       })
       .catch((error) => {
         dispatch(getTodosFailure(error.message));
@@ -67,4 +58,29 @@ const resetTodos = () => {
     type: types.TODOS_RESET
   };
 };
+
+
+/*
+
+export const getTodos = () => {
+  return async (dispatch) => {
+    dispatch(getTodosRequest());
+
+    return axios
+      .get("http://localhost:3004/todos/")
+      .then((res) => {
+        dispatch(getTodosSuccess(res.data));
+        // or you can throw an error
+        throw new Error("failed to retrieve todos!");
+        // setTimeout to represnt latency
+        // setTimeout(() => {
+        //   dispatch(getTodosSuccess(res.data));
+        // }, 2000);
+      })
+      .catch((error) => {
+        dispatch(getTodosFailure(error.message));
+      });
+  };
+};
+*/
 

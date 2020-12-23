@@ -73,7 +73,9 @@ const Todos = (props) => {
       <button onClick={handleAddTodo}>Add Todo</button>
       <button onClick={() => console.log({ todos })}>log</button>
       <div>
-        {displayTodos()}
+        <div>
+          {displayTodos()}
+        </div>
         {displayError()}
       </div>
     </div>

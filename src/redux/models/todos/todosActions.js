@@ -52,11 +52,11 @@ const getTodosFailure = (error) => {
   };
 };
 
-const resetTodos = () => {
-  return {
-    type: types.TODOS_RESET
-  };
-};
+// const resetTodos = () => {
+//   return {
+//     type: types.TODOS_RESET
+//   };
+// };
 
 
 /*

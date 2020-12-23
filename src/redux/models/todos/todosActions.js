@@ -21,7 +21,7 @@ export const getTodos = () => {
   };
 };
 
-const getTodosRequest = () => {
+export const getTodosRequest = () => {
   return {
     type: types.GET_TODOS_REQUEST,
     payload: {
@@ -30,7 +30,7 @@ const getTodosRequest = () => {
   };
 };
 
-const getTodosSuccess = (todos) => {
+export const getTodosSuccess = (todos) => {
   return {
     type: types.GET_TODOS_SUCCESS,
     payload: {
@@ -41,7 +41,7 @@ const getTodosSuccess = (todos) => {
   };
 };
 
-const getTodosFailure = (error) => {
+export const getTodosFailure = (error) => {
   return {
     type: types.GET_TODOS_FAILURE,
     payload: {

@@ -20,6 +20,9 @@ runs dummy server.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run test -- --coverage --watchAll=false`
+this test coverage of whole app
+
 ### `yarn build`
 
 Builds the app for production to the `build` folder.\

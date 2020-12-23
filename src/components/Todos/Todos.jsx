@@ -41,8 +41,23 @@ const Todos = (props) => {
       return(
         <SpinnerSVG />
       )
-    } else {
+    } else if(!todos.isLoading && todos.todos.length < 1) {
+      return(
+        <div>No todos</div>
+      )
+
+    }else {
       return mapOverTodosToDisplay()
+    }
+  }
+
+  const displayError = () =>{
+    if(todos.error){
+      return (
+        <div>{todos.error}</div>
+      )
+    }else{
+      return null;
     }
   }
 
@@ -59,6 +74,7 @@ const Todos = (props) => {
       <button onClick={() => console.log({ todos })}>log</button>
       <div>
         {displayTodos()}
+        {displayError()}
       </div>
     </div>
   );

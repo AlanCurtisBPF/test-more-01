@@ -1,5 +1,5 @@
 import configureStore from "../../configureStore";
-import * as actions from "./todoActions";
+import * as actions from "./todosActions";
 import todosReducer, { initialState } from "./todosReducer";
 
 describe("counterReducer", () => {

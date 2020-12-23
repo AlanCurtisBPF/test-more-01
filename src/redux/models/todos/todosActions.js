@@ -7,10 +7,10 @@ import * as types from "./todosTypes";
 // Actions
 
 export const getTodos = () => {
-  return (dispatch) => {
-    dispatch(getTodosStarted());
+  return async (dispatch) => {
+    dispatch(getTodosRequest());
 
-    axios
+    return axios
       .get("http://localhost:3004/todos/")
       .then((res) => {
         /*
@@ -30,9 +30,9 @@ export const getTodos = () => {
   };
 };
 
-const getTodosStarted = () => {
+const getTodosRequest = () => {
   return {
-    type: types.GET_TODOS_STARTED,
+    type: types.GET_TODOS_REQUEST,
     payload: {
       isLoading: true,
     },

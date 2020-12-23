@@ -15,7 +15,7 @@ export const initialState = {
 const todosReducer = (state = initialState, action) => {
   let updateState;
   switch (action.type) {
-    case types.GET_TODOS_STARTED:
+    case types.GET_TODOS_REQUEST:
       updateState= Object.assign({}, state, {...action.payload})
       return updateState
     case types.GET_TODOS_SUCCESS:
